@@ -2,6 +2,9 @@
 import express from 'express'
 // Import dotenv pour utiliser les valeurs du .env
 import dotenv from 'dotenv'
+// J'importe le fichier des routes 
+import usersRoute from './Routes/users.route.js'
+import eventsRoute from './Routes/events.route.js'
 
 
 
@@ -15,6 +18,12 @@ dotenv.config();
 
 // J'utilise le middleware express.json() pour que mon api utilise le JSON
 app.use(express.json());
+
+// Je dit que toutes les routes de mon fichier  [...] commencerons par /[...]
+app.use("/users", usersRoute);
+app.use("/events", eventsRoute);
+
+
 
 
 
